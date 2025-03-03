@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View detailed information about this quality pre-owned car at Car City, Delhi's premier destination for used cars.">
+    <title>Car Details - Car City</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Animate.css for button animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/car-city-favicon-new.svg" type="image/svg+xml">
+    
+    <style>
+        .car-thumbnail {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            height: 80px;
+            object-fit: cover;
+        }
+        
+        .car-thumbnail.active {
+            border-color: #0d6efd;
+        }
+        
+        .car-thumbnail:hover {
+            opacity: 0.8;
+        }
+        
+        #main-car-image {
+            transition: opacity 0.3s ease;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        #main-car-image.fade {
+            opacity: 0.5;
+        }
+        
+        .sticky-top {
+            top: 100px;
+        }
+        
+        .gallery-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px 0;
+            scrollbar-width: thin;
+        }
+        
+        .gallery-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .gallery-container::-webkit-scrollbar-thumb {
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 3px;
+        }
+        
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-black fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container">
+                    <img src="images/car-city-icon-new.svg" alt="Car City Logo" height="40">
+                    <span class="logo-text">
+                        <span class="fw-bold text-danger">Car</span><span class="fw-bold text-white">City</span>
+                    </span>
+                </div>
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="browse.html">Browse Stock</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <a href="browse.html" class="btn btn-primary rounded-pill px-4">Find Your Car</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-light py-3 mt-5">
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <a href="index.html" class="btn btn-outline-primary me-2 rounded-pill px-3 shadow-sm">
+                    <i class="fas fa-home me-1"></i> Home
+                </a>
+                <i class="fas fa-angle-right text-muted mx-2"></i>
+                <a href="browse.html" class="btn btn-outline-primary me-2 rounded-pill px-3 shadow-sm">
+                    <i class="fas fa-car me-1"></i> Browse Stock
+                </a>
+                <i class="fas fa-angle-right text-muted mx-2"></i>
+                <span class="btn btn-primary rounded-pill px-3 shadow-sm disabled">
+                    <i class="fas fa-info-circle me-1"></i> Car Details
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Car Details Section -->
+    <section class="py-5">
+        <div class="container">
+            <div id="car-details-container">
+                <!-- Car details will be loaded dynamically -->
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Similar Cars Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold mb-4">Similar Cars</h2>
+            <div class="row g-4" id="similar-cars-container">
+                <!-- Similar cars will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Hosting Information Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4">Image Hosting Information</h3>
+                            <p>For production use, we recommend the following options for hosting car images:</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="fw-bold mb-3"><i class="fab fa-aws text-warning me-2"></i> Amazon S3</h5>
+                                            <p>Amazon S3 provides secure, durable, and scalable object storage for hosting images.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> High reliability and durability</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Content delivery network (CloudFront)</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Pay only for what you use</li>
+                                            </ul>
+                                            <a href="https://aws.amazon.com/s3/" target="_blank" class="btn btn-outline-primary mt-3">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="fw-bold mb-3"><i class="fas fa-cloud text-info me-2"></i> Google Cloud Storage</h5>
+                                            <p>Google Cloud Storage offers durable and highly available object storage.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Seamless integration with Google Sheets</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Global edge network</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Simple pricing model</li>
+                                            </ul>
+                                            <a href="https://cloud.google.com/storage" target="_blank" class="btn btn-outline-primary mt-3">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="fw-bold mb-3"><i class="fas fa-image text-success me-2"></i> Cloudinary</h5>
+                                            <p>Cloudinary is an end-to-end image and video management solution.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Automatic image optimization</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> On-the-fly transformations</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Free tier available</li>
+                                            </ul>
+                                            <a href="https://cloudinary.com/" target="_blank" class="btn btn-outline-primary mt-3">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="fw-bold mb-3"><i class="fas fa-bolt text-primary me-2"></i> Firebase Storage</h5>
+                                            <p>Firebase Storage provides secure file uploads and downloads for your web app.</p>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Easy integration with Firebase</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Robust security rules</li>
+                                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Backed by Google Cloud Storage</li>
+                                            </ul>
+                                            <a href="https://firebase.google.com/products/storage" target="_blank" class="btn btn-outline-primary mt-3">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info mt-4">
+                                <h5 class="fw-bold"><i class="fas fa-info-circle me-2"></i> Implementation Tip</h5>
+                                <p class="mb-0">For seamless integration with your Google Sheets database, we recommend setting up a simple upload interface that stores images in your chosen cloud storage and automatically updates the image URLs in your Google Sheet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry Modal -->
+    <div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="inquiryModalLabel">Send Inquiry</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="inquiry-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="send-inquiry">Send Inquiry</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center" data-aos="fade-up">
+                    <h2 class="fw-bold mb-4">Can't Find What You're Looking For?</h2>
+                    <p class="lead mb-4">Contact us with your requirements and our team will help you find the perfect car</p>
+                    <a href="contact.html" class="btn btn-warning btn-lg rounded-pill shadow-lg px-5 py-3 fw-bold text-dark border border-2 border-white animate__animated animate__pulse animate__infinite">
+                        <i class="fas fa-envelope me-2"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-4">Car City</h5>
+                    <p>Delhi's premier destination for quality pre-owned cars with hassle-free financing options.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="browse.html" class="text-white text-decoration-none">Browse Stock</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Car City Road, Delhi</li>
+                        <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> +91 98765 43210</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@carcity.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> Mon-Sat: 9AM - 7PM</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates on new arrivals and special offers.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-md-0">© 2023 Car City. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-white text-decoration-none me-3">Terms of Service</a>
+                    <a href="#" class="text-white text-decoration-none">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/sheets-db.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize car details
+            initializeCarDetails();
+            
+            // Handle inquiry form submission
+            const sendInquiryBtn = document.getElementById('send-inquiry');
+            if (sendInquiryBtn) {
+                sendInquiryBtn.addEventListener('click', function() {
+                    const form = document.getElementById('inquiry-form');
+                    if (form.checkValidity()) {
+                        // In a real application, you would send the form data to a server
+                        // For now, just show a success message
+                        const modalBody = document.querySelector('#inquiryModal .modal-body');
+                        modalBody.innerHTML = `
+                            <div class="alert alert-success mb-0">
+                                <i class="fas fa-check-circle me-2"></i> Your inquiry has been sent successfully! Our team will contact you shortly.
+                            </div>
+                        `;
+                        
+                        // Close the modal after 3 seconds
+                        setTimeout(() => {
+                            const modal = bootstrap.Modal.getInstance(document.getElementById('inquiryModal'));
+                            modal.hide();
+                            
+                            // Reset the modal content after it's hidden
+                            modalBody.innerHTML = `
+                                <form id="inquiry-form">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                                    </div>
+                                </form>
+                            `;
+                        }, 3000);
+                    } else {
+                        form.reportValidity();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

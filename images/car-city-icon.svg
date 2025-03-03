@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Speedometer arc -->
+  <path d="M100 50 A80 80 0 0 1 180 130" stroke="white" stroke-width="12" fill="none" />
+  <path d="M100 50 A80 80 0 0 0 20 130" stroke="white" stroke-width="12" fill="none" />
+  
+  <!-- Car icon -->
+  <rect x="60" y="100" width="80" height="30" rx="8" fill="white" />
+  <rect x="45" y="115" width="110" height="15" rx="4" fill="white" />
+  <circle cx="60" cy="140" r="8" fill="white" />
+  <circle cx="140" cy="140" r="8" fill="white" />
+  <rect x="75" y="105" width="50" height="8" rx="2" fill="black" />
+  <circle cx="70" cy="110" r="6" fill="black" />
+  <circle cx="130" cy="110" r="6" fill="black" />
+</svg> 

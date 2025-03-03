@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Car City - Delhi's premier car resale and financing service. Find affordable quality pre-owned cars with easy financing options.">
+    <title>Car City - Premier Car Resale & Financing in Delhi</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Animate.css for button animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/car-city-favicon-new.svg" type="image/svg+xml">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-black fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand hover-float" href="index.html">
+                <div class="logo-container">
+                    <img src="images/car-city-icon-new.svg" alt="Car City Logo" height="40">
+                    <span class="logo-text">
+                        <span class="fw-bold text-danger">Car</span><span class="fw-bold text-white">City</span>
+                    </span>
+                </div>
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active hover-float" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-float" href="browse.html">Browse Stock</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-float" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-float" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <a href="browse.html" class="btn btn-primary btn-modern rounded-pill px-4">Find Your Car</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section gradient-bg">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
+                    <h1 class="fw-bold display-4 mb-4">Find Your Perfect Car at <span class="text-primary hero-typing-text">Car City</span></h1>
+                    <p class="lead mb-4">Delhi's premier destination for quality pre-owned cars with hassle-free financing options.</p>
+                    <div class="d-flex gap-3">
+                        <a href="browse.html" class="btn btn-primary btn-modern btn-lg rounded-pill">Browse Inventory</a>
+                        <a href="contact.html" class="btn btn-outline-light btn-modern btn-lg rounded-pill">Contact Us</a>
+                    </div>
+                    
+                    <!-- Statistics Cards -->
+                    <div class="row mt-5">
+                        <div class="col-4">
+                            <div class="glass-card text-center">
+                                <h2 class="counter fw-bold mb-0" data-target="500">0</h2>
+                                <p class="mb-0">Cars Sold</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="glass-card text-center">
+                                <h2 class="counter fw-bold mb-0" data-target="98">0</h2>
+                                <p class="mb-0">% Happy Clients</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="glass-card text-center">
+                                <h2 class="counter fw-bold mb-0" data-target="10">0</h2>
+                                <p class="mb-0">Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt="Luxury Car" class="img-fluid rounded-4 shadow-lg hover-scale">
+                        <div class="position-absolute top-0 end-0 bg-primary text-white px-4 py-2 rounded-pill m-3">
+                            <i class="fas fa-tag me-2"></i> Best Deals
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Cars Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-6 mx-auto text-center">
+                    <h2 class="fw-bold mb-3" data-aos="fade-up">Featured Cars</h2>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Explore our handpicked selection of quality pre-owned vehicles.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4" id="featured-cars">
+                <!-- Featured cars will be loaded dynamically from Google Sheets -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="browse.html" class="btn btn-primary btn-lg rounded-pill px-4" data-aos="fade-up">View All Cars</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="fw-bold" data-aos="fade-up">Why Choose Car City?</h2>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">We offer the best car buying experience in Delhi</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center p-4">
+                        <div class="feature-icon bg-primary text-white rounded-circle mb-4">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <h5 class="fw-bold">Quality Vehicles</h5>
+                        <p class="text-muted">All our cars undergo a rigorous 150-point inspection before listing</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center p-4">
+                        <div class="feature-icon bg-primary text-white rounded-circle mb-4">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h5 class="fw-bold">Easy Financing</h5>
+                        <p class="text-muted">Flexible financing options with competitive interest rates</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center p-4">
+                        <div class="feature-icon bg-primary text-white rounded-circle mb-4">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5 class="fw-bold">6-Month Warranty</h5>
+                        <p class="text-muted">Peace of mind with our comprehensive warranty coverage</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center p-4">
+                        <div class="feature-icon bg-primary text-white rounded-circle mb-4">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h5 class="fw-bold">Dedicated Support</h5>
+                        <p class="text-muted">Our team is always ready to assist you with any queries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financing Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2 class="fw-bold">Easy Financing Options</h2>
+                    <p class="lead">Get pre-approved in minutes with our hassle-free financing process</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Competitive interest rates starting at 7.99%</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Flexible repayment terms up to 7 years</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Minimal documentation required</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Quick approval process</li>
+                    </ul>
+                    <a href="financing.html" class="btn btn-light btn-lg rounded-pill">Learn More</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4">
+                            <h4 class="text-light fw-bold mb-4">EMI Calculator</h4>
+                            <form id="emi-calculator">
+                                <div class="mb-3">
+                                    <label for="loan-amount" class="form-label text-light">Loan Amount (₹)</label>
+                                    <input type="range" class="form-range" id="loan-amount" min="100000" max="1500000" step="10000" value="500000">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-light">₹1L</span>
+                                        <span class="text-primary fw-bold" id="loan-amount-value">₹5,00,000</span>
+                                        <span class="text-light">₹15L</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loan-term" class="form-label text-light">Loan Term (Years)</label>
+                                    <input type="range" class="form-range" id="loan-term" min="1" max="7" step="1" value="5">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-light">1 Yr</span>
+                                        <span class="text-primary fw-bold" id="loan-term-value">5 Years</span>
+                                        <span class="text-light">7 Yrs</span>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="interest-rate" class="form-label text-light">Interest Rate (%)</label>
+                                    <input type="range" class="form-range" id="interest-rate" min="7.99" max="15" step="0.01" value="9.5">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-light">7.99%</span>
+                                        <span class="text-primary fw-bold" id="interest-rate-value">9.5%</span>
+                                        <span class="text-light">15%</span>
+                                    </div>
+                                </div>
+                                <div class="result p-3 bg-dark rounded text-center">
+                                    <h5 class="text-light">Monthly EMI</h5>
+                                    <h3 class="text-primary fw-bold" id="monthly-emi">₹10,415</h3>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="fw-bold" data-aos="fade-up">What Our Customers Say</h2>
+                    <p class="text-white" data-aos="fade-up" data-aos-delay="100">Don't just take our word for it</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="testimonial-slider" data-aos="fade-up" data-aos-delay="200">
+                        <div class="row g-4">
+                            <!-- Testimonial 1 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card h-100 border-0 shadow-sm p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="testimonial-avatar me-3">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Sharma" class="rounded-circle">
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-0 fw-bold">Rahul Sharma</h5>
+                                            <p class="text-white mb-0">Delhi</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                    <p class="text-white mb-0">"The entire car buying process was smooth and transparent. I got my Maruti Suzuki Ciaz at a great price, and the financing options were very flexible. Highly recommended!"</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Testimonial 2 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card h-100 border-0 shadow-sm p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="testimonial-avatar me-3">
+                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Patel" class="rounded-circle">
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-0 fw-bold">Priya Patel</h5>
+                                            <p class="text-white mb-0">Gurgaon</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star-half-alt text-warning"></i>
+                                    </div>
+                                    <p class="text-white mb-0">"As a first-time car buyer, I was nervous about the process. The team at Car City guided me through everything and helped me find a perfect Wagon R within my budget. Great service!"</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Testimonial 3 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card h-100 border-0 shadow-sm p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="testimonial-avatar me-3">
+                                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Vikram Singh" class="rounded-circle">
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-0 fw-bold">Vikram Singh</h5>
+                                            <p class="text-white mb-0">Noida</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                    <p class="text-white mb-0">"I was looking for a specific model and Car City helped me find it within a week. The condition of the car was excellent and the paperwork was handled efficiently. Will definitely recommend to friends!"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center" data-aos="fade-up">
+                    <h2 class="fw-bold mb-4">Ready to Find Your Perfect Car?</h2>
+                    <p class="lead mb-4">Visit our showroom in Delhi or browse our inventory online</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="browse.html" class="btn btn-primary btn-lg rounded-pill">Browse Inventory</a>
+                        <a href="contact.html" class="btn btn-warning btn-lg rounded-pill shadow-lg px-5 py-3 fw-bold text-dark border border-2 border-white animate__animated animate__pulse animate__infinite">
+                            <i class="fas fa-envelope me-2"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Us in Preet Vihar Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-6 mx-auto text-center">
+                    <h2 class="fw-bold mb-3" data-aos="fade-up">Visit Us in Preet Vihar</h2>
+                    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Come see our collection of quality pre-owned cars in person.</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="glass-card" data-aos="fade-up">
+                        <!-- Google Maps Embed -->
+                        <div class="rounded-4 overflow-hidden" style="height: 500px;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.7763456195735!2d77.29599307549395!3d28.637699175649716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfb5f4b9e4f3d%3A0x8a9a0d3c5c7d7d3a!2sCommunity%20Center%2C%20Vardhaman%20Tower%2C%20235%2C%20Vikas%20Marg%2C%20C%20Block%2C%20Preet%20Vihar%2C%20New%20Delhi%2C%20Delhi%20110092!5e0!3m2!1sen!2sin!4v1709394000000!5m2!1sen!2sin" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        
+                        <!-- Address and Google Business Link -->
+                        <div class="text-center mt-4">
+                            <p class="lead mb-3"><i class="fas fa-map-marker-alt me-2 text-primary"></i>Community Center, Vardhaman Tower, 235, Vikas Marg, C Block, Preet Vihar, New Delhi, Delhi, 110092</p>
+                            <a href="https://g.co/kgs/tFKeE76" target="_blank" class="btn btn-primary btn-modern">
+                                <i class="fab fa-google me-2"></i> View on Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-4">Car City</h5>
+                    <p>Delhi's premier destination for quality pre-owned cars with hassle-free financing options.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="browse.html" class="text-white text-decoration-none">Browse Stock</a></li>
+                        <li class="mb-2"><a href="financing.html" class="text-white text-decoration-none">Financing</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Car Market, Karol Bagh, New Delhi - 110005</li>
+                        <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> +91 98765 43210</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@carcity.in</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> Mon-Sat: 9:00 AM - 7:00 PM</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Newsletter</h5>
+                    <p>Subscribe to our newsletter for the latest updates and offers</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Car City. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">
+                        <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                        <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact pulse" id="floating-contact">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+    
+    <div class="floating-contact-menu" id="floating-contact-menu">
+        <a href="tel:+911234567890">
+            <i class="fas fa-phone-alt text-success"></i>
+            <span>Call Us</span>
+        </a>
+        <a href="https://wa.me/911234567890" target="_blank">
+            <i class="fab fa-whatsapp text-success"></i>
+            <span>WhatsApp</span>
+        </a>
+        <a href="mailto:info@carcity.com">
+            <i class="fas fa-envelope text-primary"></i>
+            <span>Email</span>
+        </a>
+        <a href="contact.html">
+            <i class="fas fa-comment-alt text-warning"></i>
+            <span>Contact Form</span>
+        </a>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" id="dark-mode-toggle">
+        <i class="fas fa-sun"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script src="js/sheets-db.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init();
+        
+        // Load featured cars from Google Sheets
+        document.addEventListener('DOMContentLoaded', async function() {
+            const featuredCarsContainer = document.getElementById('featured-cars');
+            if (featuredCarsContainer) {
+                try {
+                    // Show loading state
+                    featuredCarsContainer.innerHTML = '<div class="col-12 text-center py-5"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>';
+                    
+                    // Fetch featured cars
+                    const featuredCars = await fetchFeaturedCars(3);
+                    
+                    if (featuredCars.length === 0) {
+                        featuredCarsContainer.innerHTML = '<div class="col-12 text-center py-5"><p class="text-muted">No featured cars found. Please check back later.</p></div>';
+                        return;
+                    }
+                    
+                    // Clear the container
+                    featuredCarsContainer.innerHTML = '';
+                    
+                    // Add each car to the container
+                    featuredCars.forEach(car => {
+                        const carElement = createCarElement(car);
+                        featuredCarsContainer.appendChild(carElement);
+                    });
+                } catch (error) {
+                    console.error('Error loading featured cars:', error);
+                    featuredCarsContainer.innerHTML = '<div class="col-12 text-center py-5"><p class="text-danger">Error loading featured cars. Please try again later.</p></div>';
+                }
+            }
+        });
+        
+        // EMI Calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            const loanAmountInput = document.getElementById('loan-amount');
+            const loanTermInput = document.getElementById('loan-term');
+            const interestRateInput = document.getElementById('interest-rate');
+            const loanAmountValue = document.getElementById('loan-amount-value');
+            const loanTermValue = document.getElementById('loan-term-value');
+            const interestRateValue = document.getElementById('interest-rate-value');
+            const monthlyEmi = document.getElementById('monthly-emi');
+            
+            function updateEMI() {
+                const principal = parseFloat(loanAmountInput.value);
+                const termYears = parseFloat(loanTermInput.value);
+                const interestRate = parseFloat(interestRateInput.value) / 100 / 12; // Monthly interest rate
+                const termMonths = termYears * 12;
+                
+                // EMI calculation formula
+                const emi = principal * interestRate * Math.pow(1 + interestRate, termMonths) / (Math.pow(1 + interestRate, termMonths) - 1);
+                
+                // Format the EMI value as Indian currency
+                const formattedEMI = new Intl.NumberFormat('en-IN', {
+                    style: 'currency',
+                    currency: 'INR',
+                    maximumFractionDigits: 0
+                }).format(emi);
+                
+                monthlyEmi.textContent = formattedEMI;
+                
+                // Update display values
+                loanAmountValue.textContent = new Intl.NumberFormat('en-IN', {
+                    style: 'currency',
+                    currency: 'INR',
+                    maximumFractionDigits: 0
+                }).format(principal);
+                
+                loanTermValue.textContent = termYears + (termYears === 1 ? ' Year' : ' Years');
+                interestRateValue.textContent = interestRateInput.value + '%';
+            }
+            
+            // Initial calculation
+            updateEMI();
+            
+            // Add event listeners
+            loanAmountInput.addEventListener('input', updateEMI);
+            loanTermInput.addEventListener('input', updateEMI);
+            interestRateInput.addEventListener('input', updateEMI);
+        });
+    </script>
+</body>
+</html> 

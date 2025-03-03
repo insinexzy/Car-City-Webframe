@@ -41,3 +41,32 @@ Thumbs.db
 /dist-sass/
 /js/coverage/
 /node_modules/
+
+# Development files
+node_modules/
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# Bootstrap source files
+scss/
+build/
+site/
+nuget/
+
+# Temporary files
+test-sheets.html
+redirect.html
+open-website.bat
+
+# Configuration files
+.babelrc.js
+.bundlewatch.config.json
+.browserslistrc
+.stylelintrc.json
+.stylelintignore
+.eslintrc.json
+.eslintignore
+.cspell.json
+.editorconfig
