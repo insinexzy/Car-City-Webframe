@@ -41,6 +41,7 @@ Thumbs.db
 /dist-sass/
 /js/coverage/
 /node_modules/
+/dist/
 
 # Development files
 node_modules/
@@ -54,6 +55,7 @@ scss/
 build/
 site/
 nuget/
+dist/
 
 # Temporary files
 test-sheets.html
@@ -70,3 +72,6 @@ open-website.bat
 .eslintignore
 .cspell.json
 .editorconfig
+
+# Sensitive information
+config.js
