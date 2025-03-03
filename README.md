@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Car City - Delhi's Premier Car Resale & Financing Service
 
 A modern, responsive website for Car City, offering quality pre-owned cars with easy financing options in Delhi.
@@ -58,3 +59,6 @@ See `IMAGE_HOSTING_GUIDE.md` for details on image hosting and management.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+=======
+# Car-City-Webframe
+>>>>>>> 1331e41733208bf024386438d143597c46c43980

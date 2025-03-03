@@ -4,8 +4,8 @@
  */
 
 // Configuration - Replace with your own values
-const SHEET_ID = '1EkTCSxg_rzZVuepaTQgs7R9BZHJDkmAMttN5h-YzsZI'; // User's Sheet ID
-const API_KEY = 'AIzaSyBnoR-UJ4-Oi1vZBvCxo8V9j2dRnVZb3rQ'; // Your API key
+const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID'; // Replace with your Sheet ID
+const API_KEY = 'YOUR_GOOGLE_API_KEY'; // Replace with your API key
 
 // Base URL for Google Sheets API
 const SHEETS_API_BASE = 'https://sheets.googleapis.com/v4/spreadsheets';
